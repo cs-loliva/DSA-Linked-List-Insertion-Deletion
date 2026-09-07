@@ -11,10 +11,8 @@ typedef Node* NodePtr;
 //add at beginning
 void addHead(NodePtr& head, int newdata) {
     NodePtr newPtr = new Node;
-
     newPtr -> data = newdata;
     newPtr -> next = head;
-
     head = newPtr;
 }
 
@@ -29,10 +27,10 @@ void deleteHead(NodePtr& head) {
 int countNodes(NodePtr p) {
     int count = 0;
     while (p != NULL) {
-        counter++;
+        count++;
         p = p->next;
     }
-    return c;
+    return count;
 }
 
 void displayList(NodePtr head) {
@@ -52,14 +50,14 @@ int main() {
     int value;
 
     while (cin >> command >> value) {
-        if (command =  'i') {
-            head = addHead(head, vlaue);
+        if (command == 'i') {
+            addHead(head, value);
             cout << "[" << countNodes(head) << "]";
-        } else if (command = 'd') {
-            if(head = NULL) {
+        } else if (command == 'd') {
+            if(head == NULL) {
                 cout << " THE LIST IS ALREADY EMPTY " << endl;
             } else {
-                head = deleteHead(head);
+            deleteHead(head);
                 cout << "[" << countNodes(head) << "]"; 
                 displayList(head);
             }
